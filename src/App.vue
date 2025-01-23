@@ -7,6 +7,7 @@
     <PortfolioArea></PortfolioArea>
     <ServiceArea></ServiceArea>
   </div>
+  <FooterArea></FooterArea>
 </template>
 
 <script>
@@ -16,10 +17,12 @@ import AboutArea from "@/components/AboutArea";
 import PortfolioArea from "@/components/PortfolioArea";
 import CareerArea from "@/components/CareerArea";
 import ServiceArea from "@/components/ServiceArea";
+import FooterArea from "@/components/FooterArea";
 
 export default {
   name: 'App',
   components: {
+    FooterArea,
     ServiceArea,
     CareerArea,
     AboutArea,
@@ -249,6 +252,10 @@ ul {
   height: 100%;
 }
 
+.welcome-area > .container > .image-slide > img{
+  object-fit: contain;
+}
+
 .welcome-area > .container > .image-prev,
 .welcome-area > .container > .image-next {
   cursor: pointer;
@@ -325,7 +332,7 @@ ul {
 
 /* SECTION */
 section {
-  padding: 80px 0;
+  padding: 70px 0;
 }
 
 .title {
@@ -366,9 +373,10 @@ section {
 }
 
 .about-area > .picture > img {
-  max-width: 300px;
+  max-width: 400px;
   max-height: 300px;
   border-radius: 15px;
+  object-fit: contain;
 }
 
 .about-area > .picture > .name {
@@ -502,6 +510,14 @@ section {
   padding: 10px 0;
 }
 
+.career-area > .container > .item > .detail {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  letter-spacing: -0.5px;
+  line-height: 25px;
+  padding-top: 10px;
+}
+
 /* PORTFOLIO AREA */
 .portfolio-area {
   height: auto;
@@ -628,70 +644,6 @@ section {
 
 .portfolio-area > .container > .filterItem > .text {
   display: none;
-}
-
-#portfolioModal {
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-  text-align: center;
-  overflow: hidden;
-}
-
-#portfolioModal > .close {
-  display: block;
-  text-align: right;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-  padding: 0 20px;
-}
-
-#portfolioModal > .close:hover,
-#portfolioModal > .close:focus {
-  color: #bbb;
-}
-
-#portfolioModal > .container {
-  width: 100%;
-  height: auto;
-}
-
-#portfolioModal > .container > img {
-  width: calc(100% - 40px);
-  padding: 20px;
-}
-
-@media (min-width: 992px) {
-  #portfolioModal > .container > img {
-    max-width: 700px;
-  }
-}
-
-#portfolioModal > .container > .modal-main {
-  position: relative;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  padding: 10px 0;
-}
-
-#portfolioModal > .container > .modal-sub {
-  font-size: 20px;
-  color: white;
-  padding: 10px 0;
-}
-
-#portfolioModal > .container > .modal-text {
-  font-size: 16px;
-  color: #bbb;
 }
 
 /* REVIEW AREA */
@@ -938,7 +890,7 @@ section {
 
 .footer-area > .info > p {
   font-size: 16px;
-  padding: 10px 0;
+  padding: 40px 0;
 }
 
 </style>

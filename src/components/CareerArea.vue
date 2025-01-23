@@ -7,7 +7,7 @@
           <span><i :class="career.icon"></i></span>
         </div>
         <div class="service">{{ career.name }}</div>
-        <div class="content">{{ career.detail }}</div>
+        <div class="detail">{{ career.detail }}</div>
         <div class="content">{{ career.description }}</div>
       </div>
     </div>

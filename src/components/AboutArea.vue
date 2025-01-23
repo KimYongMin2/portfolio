@@ -4,7 +4,7 @@
       ABOUT
     </div>
     <div class="picture">
-      <img src="img/man-1246508_1920.jpg">
+      <img src="@/assets/image/about/about-main.jpg">
       <div class="name">김용민</div>
     </div>
     <div class="text">
@@ -17,6 +17,8 @@
         <br><br>
 
         Vue.js를 이용한 Front-End 개발에 관해 관심이 많으며 <br>주로 사용하는 언어는 HTML, CSS, JavaScript 입니다.
+        <br>
+        <br>
       </div>
       <ul>
         <li>
@@ -24,11 +26,11 @@
             <i class="far fa-calendar-alt"></i> 1996년 3월 4일
           </div>
         </li>
-        <li>
-          <div class="info">
-            <i class="fas fa-phone"></i> 010 6858 8374
-          </div>
-        </li>
+<!--        <li>-->
+<!--          <div class="info">-->
+<!--            <i class="fas fa-phone"></i> 010 6858 8374-->
+<!--          </div>-->
+<!--        </li>-->
         <li>
           <div class="info">
             <i class="fas fa-envelope"></i> kym960304@naver.com

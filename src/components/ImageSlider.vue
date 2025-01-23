@@ -21,10 +21,10 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const images = ref([
-  require('@/assets/image/edumonster/edu-main.png'),
-  require('@/assets/image/lg-meet/lg-meet-main.png'),
-  require('@/assets/image/practice-project/practice-project-bookclip.png'),
-  require('@/assets/image/riman-lms/riman-lms-main.png')
+  require('@/assets/image/portfolio/portfolio-main-1.png'),
+  require('@/assets/image/portfolio/portfolio-main-2.png'),
+  require('@/assets/image/portfolio/portfolio-main-3.png'),
+  require('@/assets/image/portfolio/portfolio-main-4.png')
 ]);
 
 const currentImageIndex = ref(0);
@@ -51,11 +51,11 @@ const currentImageSlide = (n) => {
 };
 
 onMounted(() => {
-  // imageTimer = setInterval(imageSlideTimer, 3000);
+  imageTimer = setInterval(imageSlideTimer, 3000);
 });
 
 onUnmounted(() => {
-  // clearInterval(imageTimer);
+  clearInterval(imageTimer);
 });
 </script>
 
