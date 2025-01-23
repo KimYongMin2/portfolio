@@ -560,12 +560,18 @@ section {
 
 .portfolio-area > .container > .filterItem {
   display: none;
-  width: calc(30% - 80px);
+  width: calc(60% - 80px);
   margin: 24px;
   text-align: center;
   padding: 10px;
   /*border: 1px solid #d5d5d5;*/
   /*border-radius: 50px;*/
+}
+
+@media (min-width: 800px) {
+  .portfolio-area > .container > .filterItem {
+    width: calc(30% - 80px);
+  }
 }
 
 @media (min-width: 992px) {
