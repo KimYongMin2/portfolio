@@ -224,4 +224,225 @@ onMounted(() => {
 
 <style scoped>
 /* 스타일 추가 */
+/* REVIEW AREA */
+.service-area {
+  height: auto;
+  /*background-color: #f9f9ff;*/
+  background-color: #f6f6f8;
+
+}
+
+.service-area > .container {
+  position: relative;
+  text-align: center;
+  background-color: white;
+  margin: 20px;
+  padding: 40px;
+  min-height: 800px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+@media (min-width: 992px) {
+  .service-area > .container {
+    padding: 20px 0;
+    min-height: 400px;
+  }
+}
+
+.service-area > .container > .review-prev,
+.service-area > .container > .review-next {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  user-select: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.service-area > .container > .review-prev {
+  left: 0;
+}
+
+.service-area > .container > .review-next {
+  right: 0;
+}
+
+.service-area > .container > .review-prev:hover,
+.service-area > .container > .review-next:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.service-area > .container > .review-slide {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 10px;
+}
+
+@media (min-width: 992px) {
+  .service-area > .container > .review-slide {
+    width: 300px;
+  }
+}
+
+.service-area > .container > .review-slide.res-show {
+  display: inline-block;
+}
+
+@media (min-width: 992px) {
+  .service-area > .container > .review-slide.show {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.service-area > .container > .review-slide.hide {
+  display: none;
+}
+
+.service-area > .container > .review-slide > div {
+  padding-left: 30px;
+}
+
+@media (min-width: 992px) {
+  .service-area > .container > .review-slide > div {
+    padding-left: 0px;
+  }
+}
+
+.service-area > .container > .review-slide  > div > .image {
+  display: inline-block;
+}
+
+.service-area > .container > .review-slide > div > .image > i {
+  font-size: 40px;
+  color: #aaa;
+}
+
+.service-area > .container > .review-slide > div > .name {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 10px;
+  font-family: "Montserrat";
+}
+
+.service-area > .container > .review-slide > .job {
+  display: inline-block;
+  font-size: 18px;
+}
+
+.service-area > .container > .review-slide > .text {
+  padding: 30px;
+}
+
+.service-area > .container > .review-slide > .text > .content {
+  font-size: 16px;
+  color: gray;
+  font-family: 'Pretendard-Regular';
+}
+
+.service-area > .container > .review-slide > .rating {
+  text-align: right;
+  padding: 10px;
+}
+
+.service-area > .container > .review-slide > .rating > span {
+  font-size: 14px;
+  color: orange;
+}
+
+.service-area > .container > .item {
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+  transition: all 0.5s ease;
+}
+
+.service-area > .container > .item:hover {
+  transform: scale(1.015);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.service-area > .container > .item > .icon {
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.service-area > .container > .item > .icon > span > i {
+  font-size: 48px;
+  color: #aaa;
+}
+
+.service-area > .container > .item > .service {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 10px;
+  font-family: 'Pretendard-Regular';
+  display: inline-block;
+}
+
+
+.service-area > .container > .item > .content {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  letter-spacing: -0.5px;
+  line-height: 25px;
+  padding: 10px 0;
+}
+
+.service-area > .filter > .list {
+  text-align: right;
+  padding: 0 20px;
+}
+
+.service-area > .filter > .filerList {
+  text-align: center;
+  padding: 10px;
+}
+
+.service-area > .filter > .list > .listItem {
+  display: inline-block;
+  font-weight: bold;
+  /*padding: 0 20px;*/
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Montserrat";
+  /*border-bottom: 1px solid #d5d5d5;*/
+}
+
+.service-area > .filter > .list > .listItemSlash {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 20px;
+  font-size: 16px;
+  font-family: "Montserrat";
+  color: #717171;
+  /*border-bottom: 1px solid #d5d5d5;*/
+}
+
+
+.service-area > .filter > .list > .listItem:hover,
+.service-area > .filter > .list > .listItem.active {
+  color: royalblue;
+}
+
 </style>

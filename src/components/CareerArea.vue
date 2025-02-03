@@ -23,13 +23,13 @@ const careers = ref([
     name: '명지전문대',
     icon: 'fa-solid fa-school',
     detail: '컴퓨터전자과(3년제) 2015.02 - 2020.02',
-    description: '웹페이지 만들기, Java, C 등 기본적인 프로그래밍 언어를 학습했습니다.'
+    description: '웹페이지 만들기, Java, C 등 기본적인 프로그래밍 언어를 학습하였습니다.'
   },
   {
     name: '명지전문대',
     icon: 'fa-solid fa-school',
     detail: '전자공학과(학사학위과정) 2020.02 - 2021.02',
-    description: '데이터통신 및 알고리즘 언어를 학습햇습니다.'
+    description: '데이터통신 및 알고리즘 언어를 학습하였습니다.'
   },
   {
     name: '비트캠프',
@@ -48,4 +48,64 @@ const careers = ref([
 
 <style scoped>
 /* 여기에 필요한 스타일을 추가하세요 */
+/* SERVICES AREA */
+.career-area {
+  height: auto;
+  background-color: #f6f6f8;
+}
+
+.career-area > .container {
+  text-align: center;
+}
+
+.career-area > .container > .item {
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+  transition: all 0.5s ease;
+  border-radius: 25px;
+}
+
+.career-area > .container > .item:hover {
+  transform: scale(1.015);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.career-area > .container > .item > .icon {
+  padding: 5px 0;
+  display: inline-block;
+}
+
+.career-area > .container > .item > .icon > span > i {
+  font-size: 32px;
+  color: #aaa;
+}
+
+.career-area > .container > .item > .service {
+  display: inline-block;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 0 20px;
+  font-family: 'Pretendard-Regular';
+}
+
+
+.career-area > .container > .item > .content {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  letter-spacing: -0.5px;
+  line-height: 25px;
+  padding: 10px 0;
+}
+
+.career-area > .container > .item > .detail {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  letter-spacing: -0.5px;
+  line-height: 25px;
+  padding-top: 10px;
+}
+
 </style>

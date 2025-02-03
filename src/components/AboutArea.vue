@@ -64,4 +64,108 @@
 
 <style scoped>
 /* 여기에 필요한 스타일을 추가하세요 */
+/* ABOUT AREA */
+.about-area {
+  height: auto;
+  position: relative;
+}
+
+.about-area > .picture {
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (min-width: 992px) {
+  .about-area > .picture {
+    width: calc(40% - 40px);
+    display: inline-block;
+  }
+}
+
+.about-area > .picture > img {
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+.about-area > .picture > .name {
+  font-size: 25px;
+  text-align: center;
+  padding: 15px 0;
+  font-family: 'Pretendard-bold';
+}
+
+.about-area > .picture > .description {
+  font-size: 14px;
+  font-family: 'Pretendard-Regular';
+}
+
+.about-area > .text {
+  display: block;
+  padding: 30px;
+}
+
+@media (min-width: 992px) {
+  .about-area > .text {
+    width: calc(60% - 100px);
+    display: inline-block;
+    padding: 0 50px;
+  }
+}
+
+.about-area > .text * {
+  font-size: 18px;
+}
+
+.about-area > .text > .intro {
+  padding: 20px 0;
+  font-family: 'Pretendard-Regular';
+  letter-spacing: -0.5px;
+  line-height: 1.5;
+}
+
+.about-area > .text > ul {
+  padding: 20px 0;
+}
+
+.about-area > .text > ul > li {
+  height: 40px;
+}
+
+.about-area > .text > ul > li > .info {
+  color: #777;
+  font-family: 'Pretendard-Regular';
+}
+
+.about-area > .text > ul > li > .info > i {
+  color: #0e0e0e;
+}
+
+.about-area > .text > .sns {
+  text-align: right;
+}
+
+@media (min-width: 992px) {
+  .about-area > .text > .sns {
+    text-align: left;
+  }
+}
+
+.about-area > .text > .sns > a {
+  width: 50px;
+  line-height: 50px;
+  background-color: #eee;
+  border-radius: 5px;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.about-area > .text > .sns > a:hover {
+  background-image: linear-gradient(to right, royalblue, aquamarine);
+}
+
 </style>
