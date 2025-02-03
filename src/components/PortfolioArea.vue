@@ -26,8 +26,14 @@
     </div>
     <div class="modal" v-if="modalState">
       <span class="close" id="modalClose" @click="closeModal">&times;</span>
-      <div class="picture">
-        <img src="@/assets/image/lg-meet/lg-meet-main.png">
+      <div class="picture fade" v-for="(image, index) in modalInfo.imageDetail" :key="index" v-show="currentImageIndex === index">
+        <img :src="image" alt="슬라이드 이미지">
+        <a class="image-prev" id="imagePrev" @click="plusImageSlides(-1)">&#10094;</a>
+        <a class="image-next" id="imageNext" @click="plusImageSlides(1)">&#10095;</a>
+
+        <div class="dots">
+          <span class="dot" v-for="(image, index) in modalInfo.imageDetail" :key="index" @click="currentImageSlide(index)" :class="{ active: currentImageIndex === index }"></span>
+        </div>
       </div>
       <div class="text">
         <div class="intro">
@@ -55,6 +61,7 @@
 
 <script setup>
 import {ref, computed} from 'vue';
+const currentImageIndex = ref(0);
 
 const currentFilter = ref('all');
 const modalInfo = ref();
@@ -67,7 +74,7 @@ const portfolioItems = ref([
     tool: 'Vue, JavaScript, Html, Css',
     assignedTask: ['상품 리스트 및 상세정보 표출 페이지', '이용후기 및 문의사항 등록,수정,삭제 관리 페이지', '로그인,회원가입 및 구매 페이지', '회원, 컨텐츠 관리 페이지', '찜하기 및 장바구니 기능구현'],
     image: require('@/assets/image/edumonster/edu-logo.png'),
-    imageDetail: [require('@/assets/image/edumonster/edu-class.png'), require('@/assets/image/edumonster/edu-class-detail.png'), require('@/assets/image/edumonster/edu-main.png')],
+    imageDetail: [require('@/assets/image/edumonster/edu-main.png'), require('@/assets/image/edumonster/edu-class.png'),require('@/assets/image/edumonster/edu-class-detail.png')],
     filters: 'company'
   },
   {
@@ -79,7 +86,7 @@ const portfolioItems = ref([
     tool: 'JavaScript, Html, Css, Java',
     assignedTask: ['회의 리스트 표출 페이지', '화면공유 기능', '발화자 하이라이트 기능'],
     image: require('@/assets/image/lg-meet/lg-meet-logo.png'),
-    imageDetail: [require('@/assets/image/lg-meet/lg-meet-logo.png')],
+    imageDetail: [require('@/assets/image/lg-meet/lg-meet-home.png'),require('@/assets/image/lg-meet/lg-meet-main.png'),require('@/assets/image/lg-meet/lg-meet-meeting.png')],
     filters: 'company'
   },
   {
@@ -91,7 +98,7 @@ const portfolioItems = ref([
     tool: 'JavaScript, Html, Css, Java',
     assignedTask: ['회의 리스트 표출 페이지', '화면공유 기능', '영상송출 기능', '채팅기능', '그림판 기능', '입,퇴장 시 회의, 채팅 연결 기능'],
     image: require('@/assets/image/mate/mate-logo.png'),
-    imageDetail: [require('@/assets/image/mate/mate-logo.png')],
+    imageDetail: [require('@/assets/image/mate/mate-home.png'),require('@/assets/image/mate/mate-home2.png'),require('@/assets/image/mate/mate-main.png')],
     filters: 'company'
   },
   {
@@ -102,7 +109,7 @@ const portfolioItems = ref([
     tool: 'Vue, JavaScript, Html, Css',
     assignedTask: ['상품 리스트 및 상세정보 표출 페이지', '이용후기 및 문의사항 등록,수정,삭제 관리 페이지', '로그인,회원가입 및 구매 페이지', '회원, 컨텐츠 관리 페이지', '찜하기 및 장바구니 기능구현'],
     image: require('@/assets/image/riman-lms/riman-lms-logo.png'),
-    imageDetail: [require('@/assets/image/riman-lms/riman-lms-logo.png')],
+    imageDetail: [require('@/assets/image/riman-lms/riman-lms-class.png'),require('@/assets/image/riman-lms/riman-lms-main.png'),require('@/assets/image/riman-lms/riman-lms-management.png'),require('@/assets/image/riman-lms/riman-lms-study.png')],
     filters: 'company'
   },
   {
@@ -111,8 +118,8 @@ const portfolioItems = ref([
     description: '이 플랫폼은 전반적인 사용자 관리 및 웹페이지 관리를 할 수 있는 플랫폼으로 메인페이지의 약관, 다양한 쿠폰, 메인광고이미지 및 동영상 등을 관리하며 사용자는 사용자의 정보, 권한을 관리합니다.',
     tool: 'Vue, JavaScript, Html, Css',
     assignedTask: ['메뉴구성 페이지, 쿠폰정책 페이지', '주문 및 반품관리 페이지', '찾아오시는 길 페이지', '약관 페이지', '장바구니 관리 페이지', '... etc'],
-    image: require('@/assets/image/riman-lms/riman-bo-logo.png'),
-    imageDetail: [require('@/assets/image/riman-lms/riman-bo-logo.png')],
+    image: require('@/assets/image/riman-bo/riman-bo-logo.png'),
+    imageDetail: [require('@/assets/image/riman-bo/riman-bo-main.png'),require('@/assets/image/riman-bo/riman-bo-map.png'),require('@/assets/image/riman-bo/riman-bo-menu.png')],
     filters: 'company'
   },
   {
@@ -124,7 +131,7 @@ const portfolioItems = ref([
     tool: 'JavaScript, Html, Css, Java',
     assignedTask: ['산 정보조회 api 기능', '산 리스트 및 상세정보 보여주는 페이지', '산과 관련된 SNS를 필터링 해 보여주는 기능', '관리자 페이지'],
     image: require('@/assets/image/practice-project/mountain-main-logo.png'),
-    imageDetail: [require('@/assets/image/practice-project/mountain-main-logo.png')],
+    imageDetail: [require('@/assets/image/practice-project/mountain_main.png'),require('@/assets/image/practice-project/mountain-sns.png'),require('@/assets/image/practice-project/mountain-info.png'),require('@/assets/image/practice-project/mountain-crew.png'),require('@/assets/image/practice-project/mountain-management.png')],
     filters: 'study'
   },
   {
@@ -152,6 +159,7 @@ const portfolioItems = ref([
 ]);
 
 function setModalInfo(portFolioInfo) {
+  currentImageIndex.value = 0
   modalInfo.value = portFolioInfo;
   modalState.value = true;
 }
@@ -160,6 +168,18 @@ function closeModal() {
   modalInfo.value = null;
   modalState.value = false;
 }
+
+const plusImageSlides = (n) => {
+  showImageSlides(currentImageIndex.value + n);
+};
+
+const showImageSlides = (index) => {
+  currentImageIndex.value = index < 0 ? modalInfo.value.imageDetail.length - 1 : index % modalInfo.value.imageDetail.length;
+};
+
+const currentImageSlide = (n) => {
+  showImageSlides(n);
+};
 
 const filteredPortfolioItems = computed(() => {
   if (currentFilter.value === 'all') return portfolioItems.value;
@@ -315,24 +335,28 @@ function filterSelection(filter) {
   left: 50%;
   transform: translate(-50%, -50%);
   width: calc(50% + 50px);
-  /*height: 50%;*/
+  height: auto;
+  min-height: 650px;
   background: white;
   border-radius: 15px;
   z-index: 3;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-  /*align-items: center;*/
+  align-items: center;
 }
 
 .modal > .picture {
+  position: relative;
   width: calc(60% - 50px);
+  height: 100%;
   margin: 70px 20px 70px 50px;
 }
 
 .modal > .picture > img {
   border-radius: 15px;
   object-fit: contain;
+  margin-bottom: 20px;
 }
 
 .modal > .text {
@@ -394,6 +418,95 @@ function filterSelection(filter) {
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.8);
   z-index: 2;
+}
+
+.modal > .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+.modal > .picture > .image-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #6b6b6b;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.modal > .picture > .image-prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #6b6b6b;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.modal > .picture > .image-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.modal > .picture > .image-prev:hover,
+.modal > .picture > .image-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.modal > .picture > .dots {
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+}
+
+.modal > .picture > .dots > .dot {
+  cursor: pointer;
+  height: 4px;
+  width: 30px;
+  margin: 0 2px;
+  background-color: #717171;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.modal > .picture > .dots > .dot.active,
+.modal > .picture > .dots > .dot:hover {
+  background-color: #ddd;
 }
 
 </style>
