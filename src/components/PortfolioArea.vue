@@ -26,14 +26,17 @@
     </div>
     <div class="modal" v-if="modalState">
       <span class="close" id="modalClose" @click="closeModal">&times;</span>
-      <div class="picture fade" v-for="(image, index) in modalInfo.imageDetail" :key="index" v-show="currentImageIndex === index">
-        <img :src="image" alt="슬라이드 이미지">
-        <a class="image-prev" id="imagePrev" @click="plusImageSlides(-1)">&#10094;</a>
-        <a class="image-next" id="imageNext" @click="plusImageSlides(1)">&#10095;</a>
+<!--      <div class="picture fade" v-for="(image, index) in modalInfo.imageDetail" :key="index" v-show="currentImageIndex === index">-->
+<!--        <img :src="image" alt="슬라이드 이미지">-->
+<!--        <a class="image-prev" id="imagePrev" @click="plusImageSlides(-1)">&#10094;</a>-->
+<!--        <a class="image-next" id="imageNext" @click="plusImageSlides(1)">&#10095;</a>-->
 
-        <div class="dots">
-          <span class="dot" v-for="(image, index) in modalInfo.imageDetail" :key="index" @click="currentImageSlide(index)" :class="{ active: currentImageIndex === index }"></span>
-        </div>
+<!--        <div class="dots">-->
+<!--          <span class="dot" v-for="(image, index) in modalInfo.imageDetail" :key="index" @click="currentImageSlide(index)" :class="{ active: currentImageIndex === index }"></span>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div class="picture fade">
+        <img :src="modalInfo.image" alt="슬라이드 이미지">
       </div>
       <div class="text">
         <div class="intro">
@@ -169,17 +172,17 @@ function closeModal() {
   modalState.value = false;
 }
 
-const plusImageSlides = (n) => {
-  showImageSlides(currentImageIndex.value + n);
-};
+// const plusImageSlides = (n) => {
+//   showImageSlides(currentImageIndex.value + n);
+// };
 
-const showImageSlides = (index) => {
-  currentImageIndex.value = index < 0 ? modalInfo.value.imageDetail.length - 1 : index % modalInfo.value.imageDetail.length;
-};
+// const showImageSlides = (index) => {
+//   currentImageIndex.value = index < 0 ? modalInfo.value.imageDetail.length - 1 : index % modalInfo.value.imageDetail.length;
+// };
 
-const currentImageSlide = (n) => {
-  showImageSlides(n);
-};
+// const currentImageSlide = (n) => {
+//   showImageSlides(n);
+// };
 
 const filteredPortfolioItems = computed(() => {
   if (currentFilter.value === 'all') return portfolioItems.value;
@@ -328,29 +331,45 @@ function filterSelection(filter) {
   display: none;
 }
 
-.modal {
+.modal{
   display: flex;
   position: fixed;
   top: calc(50% + 50px);
   left: 50%;
   transform: translate(-50%, -50%);
   width: calc(50% + 50px);
-  height: auto;
+  max-height: 80%;
+  overflow: auto;
   min-height: 650px;
-  background: white;
+  background: #fff;
   border-radius: 15px;
   z-index: 3;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
 }
 
+.modal::-webkit-scrollbar {
+  width: 10px;
+}
+.modal::-webkit-scrollbar-thumb {
+  background-color: #303134;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.modal::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
 .modal > .picture {
   position: relative;
-  width: calc(60% - 50px);
+  width: calc(80% - 50px);
   height: 100%;
-  margin: 70px 20px 70px 50px;
+  margin: 70px 20px 30px 20px;
 }
 
 .modal > .picture > img {
@@ -360,9 +379,42 @@ function filterSelection(filter) {
 }
 
 .modal > .text {
-  margin: 70px 50px 70px 20px;
-  width: calc(50% - 50px);
+  margin: 30px 20px 30px 20px;
+  width: calc(80% - 50px);
 }
+
+/*@media (min-width: 1600px) {*/
+/*  .modal {*/
+/*    overflow: hidden;*/
+/*    display: flex;*/
+/*    position: fixed;*/
+/*    top: calc(50% + 50px);*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: calc(50% + 50px);*/
+/*    height: auto;*/
+/*    min-height: 650px;*/
+/*    background: white;*/
+/*    border-radius: 15px;*/
+/*    z-index: 3;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: nowrap;*/
+/*    justify-content: space-around;*/
+/*    align-items: center;*/
+/*  }*/
+
+/*  .modal > .picture {*/
+/*    position: relative;*/
+/*    width: calc(60% - 50px);*/
+/*    height: 100%;*/
+/*    margin: 70px 20px 70px 50px;*/
+/*  }*/
+
+/*  .modal > .text {*/
+/*    margin: 70px 50px 70px 20px;*/
+/*    width: calc(50% - 50px);*/
+/*  }*/
+/*}*/
 
 .modal > .text * {
   font-size: 18px;
