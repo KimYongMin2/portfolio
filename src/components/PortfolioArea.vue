@@ -26,18 +26,18 @@
     </div>
     <div class="modal" v-if="modalState">
       <span class="close" id="modalClose" @click="closeModal">&times;</span>
-<!--      <div class="picture fade" v-for="(image, index) in modalInfo.imageDetail" :key="index" v-show="currentImageIndex === index">-->
-<!--        <img :src="image" alt="슬라이드 이미지">-->
-<!--        <a class="image-prev" id="imagePrev" @click="plusImageSlides(-1)">&#10094;</a>-->
-<!--        <a class="image-next" id="imageNext" @click="plusImageSlides(1)">&#10095;</a>-->
+      <div class="picture fade" v-for="(image, index) in modalInfo.imageDetail" :key="index" v-show="currentImageIndex === index">
+        <img :src="image" alt="슬라이드 이미지" style="max-height: 400px;">
+        <a class="image-prev" id="imagePrev" @click="plusImageSlides(-1)">&#10094;</a>
+        <a class="image-next" id="imageNext" @click="plusImageSlides(1)">&#10095;</a>
 
-<!--        <div class="dots">-->
-<!--          <span class="dot" v-for="(image, index) in modalInfo.imageDetail" :key="index" @click="currentImageSlide(index)" :class="{ active: currentImageIndex === index }"></span>-->
-<!--        </div>-->
-<!--      </div>-->
-      <div class="picture fade">
-        <img :src="modalInfo.image" alt="슬라이드 이미지">
+        <div class="dots">
+          <span class="dot" v-for="(image, index) in modalInfo.imageDetail" :key="index" @click="currentImageSlide(index)" :class="{ active: currentImageIndex === index }"></span>
+        </div>
       </div>
+<!--      <div class="picture fade">-->
+<!--        <img :src="modalInfo.image" alt="슬라이드 이미지">-->
+<!--      </div>-->
       <div class="text">
         <div class="intro">
           {{ modalInfo.description }}
@@ -172,17 +172,17 @@ function closeModal() {
   modalState.value = false;
 }
 
-// const plusImageSlides = (n) => {
-//   showImageSlides(currentImageIndex.value + n);
-// };
+const plusImageSlides = (n) => {
+  showImageSlides(currentImageIndex.value + n);
+};
 
-// const showImageSlides = (index) => {
-//   currentImageIndex.value = index < 0 ? modalInfo.value.imageDetail.length - 1 : index % modalInfo.value.imageDetail.length;
-// };
+const showImageSlides = (index) => {
+  currentImageIndex.value = index < 0 ? modalInfo.value.imageDetail.length - 1 : index % modalInfo.value.imageDetail.length;
+};
 
-// const currentImageSlide = (n) => {
-//   showImageSlides(n);
-// };
+const currentImageSlide = (n) => {
+  showImageSlides(n);
+};
 
 const filteredPortfolioItems = computed(() => {
   if (currentFilter.value === 'all') return portfolioItems.value;
